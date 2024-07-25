@@ -23,7 +23,7 @@ app.get('/', function (req, res) {
 app.get('/api/whoami', function (req, res) {
   const headers = req.headers
   
-  res.json({ ipaddress: req.ip, language: headers["accept-language"], software: headers['user-agent'] });
+  res.json({ ipaddress: req.ip.replace("::ffff:", ""), language: headers["accept-language"], software: headers['user-agent'] });
 });
 
 // listen for requests :)
